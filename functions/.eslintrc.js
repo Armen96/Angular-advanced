@@ -27,6 +27,12 @@ module.exports = {
   rules: {
     "quotes": ["error", "double"],
     "import/no-unresolved": 0,
-    "indent": ["error", 2]
+    "indent": ["error", 2],
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/unused-declarations": "off",
+    "max-len": ["error", {"code": 180, "tabWidth": 4}],
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "valid-jsdoc": "off",
   },
 };
