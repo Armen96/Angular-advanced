@@ -9,14 +9,18 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
-    path: '',
-    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'profile',
-    loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule),
-    canActivate: [AuthGuard]
+    path: '', // component less route
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
+      },
+      {
+        path: 'profile',
+        loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule),
+      }
+    ]
   }
 ];
 

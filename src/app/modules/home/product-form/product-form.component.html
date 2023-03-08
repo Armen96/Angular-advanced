@@ -1,0 +1,55 @@
+<div class="main-container">
+  <mat-card class="p-2">
+    <form [formGroup]="productForm">
+      <div class="display-flex flex justify-self-start">
+        <mat-form-field appearance="fill" class="flex-1">
+          <mat-label>Title</mat-label>
+          <input
+            name="title"
+            type="text"
+            matInput
+            placeholder="Product Title"
+            formControlName="title"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="ml-2 flex-1">
+          <mat-label>Description</mat-label>
+          <input
+            name="description"
+            type="text"
+            matInput
+            placeholder="Product Description"
+            formControlName="description"
+          />
+        </mat-form-field>
+      </div>
+
+      <div class="display-flex flex justify-self-start mt-2">
+        <mat-form-field appearance="fill" class="flex-1">
+          <mat-label>Price</mat-label>
+          <input
+            name="title"
+            type="number"
+            matInput
+            placeholder="Product Price"
+            formControlName="price"
+          />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="flex-1 ml-2">
+          <mat-label>Date</mat-label>
+          <input
+            name="title"
+            type="date"
+            matInput
+            placeholder="Product Date"
+            formControlName="date"
+          />
+        </mat-form-field>
+      </div>
+
+      <app-button-alone color="primary" [disabled]="productForm.invalid" (submitEvent)="submit()" label="Add"></app-button-alone>
+    </form>
+  </mat-card>
+</div>
