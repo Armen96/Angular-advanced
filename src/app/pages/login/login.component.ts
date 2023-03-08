@@ -9,6 +9,10 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
+  public emailField: string = '';
+  public passwordField: string = '';
+  public isError: boolean = false;
+
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
@@ -19,8 +23,21 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  signInWithGoogle() {
-    this.authService.signInWithGoogle();
+  async signInWithGoogle() {
+    await this.authService.signInWithGoogle();
+  }
+
+  async signIn() {
+    let result = await this.authService.signInWithPassword({email: this.emailField, password: this.passwordField});
+
+    if (result) {
+      this.emailField = '';
+      this.passwordField = '';
+
+      this.isError = false;
+    } else {
+      this.isError = true;
+    }
   }
 
 }
